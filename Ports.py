@@ -72,5 +72,4 @@ else:
 connected.grid(row=1)
 open_port_btn = Button(root, text="Open Port", command=open_port).grid(row=0, column=2)
 
-
 root.mainloop()
