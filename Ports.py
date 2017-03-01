@@ -72,4 +72,12 @@ else:
 connected.grid(row=1)
 open_port_btn = Button(root, text="Open Port", command=open_port).grid(row=0, column=2)
 
+
+def close_port():
+    ser.close()
+    pass
+
+
+close_port_btn = Button(root, text="Close Port", command=close_port).grid(row=0, column=3)
+
 root.mainloop()
