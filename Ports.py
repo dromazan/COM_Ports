@@ -48,6 +48,8 @@ ports_list.grid(row=0, column=1)
 
 ser = serial.Serial()
 
+Label(root, text="Disconnected", fg='red').grid(row=1, column=1)
+
 
 def set_port_state_label(state):
     if state == "Connected":
