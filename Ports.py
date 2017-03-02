@@ -2,7 +2,10 @@ from tkinter import *
 import serial
 import glob
 
+from dask.compatibility import apply
+
 root = Tk()
+
 
 def get_serial_ports_list():
     if sys.platform.startswith('win'):
@@ -38,7 +41,7 @@ if ports:
 else:
     var.set('null')
     ports=['null']
-ports_list = OptionMenu(root, var, ports)
+ports_list = apply(OptionMenu, (root, var) + tuple(ports))
 ports_list.pack()
 
 ser = serial.Serial()
