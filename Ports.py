@@ -13,7 +13,6 @@ def get_serial_ports_list():
     if sys.platform.startswith('win'):
         ports = ['COM%s' % (i + 1) for i in range(256)]
     elif sys.platform.startswith('linux') or sys.platform.startswith('cygwin'):
-        # this excludes your current terminal "/dev/tty"
         ports = glob.glob('/dev/tty[A-Za-z]*')
     elif sys.platform.startswith('darwin'):
         ports = glob.glob('/dev/tty.*')
@@ -36,7 +35,7 @@ print(ports)
 
 root.geometry("%dx%d+%d+%d" % (330, 200, 200, 150))
 label_serial = Label(root, text='Select Serial Port:').grid(row=0, column=0)
-#label_serial.pack()
+
 var = StringVar(root)
 if ports:
     var.set(ports[0])
@@ -99,6 +98,6 @@ def read_port_value():
     return portval
 
 port_val = Button(root, text="Read port", command=read_port_value).grid(row=2, column=0)
-#port_val.pack()
+
 
 root.mainloop()
