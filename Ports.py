@@ -90,14 +90,20 @@ state = Label(root, text="Port state: ").grid(row=1)
 def read_port_value():
     if ser.is_open:
         portval = ser.readline()
-        print(portval)
+
+        if portval == "Hello Mega!":
+            print("mega is connected")
+            Label(root, text=portval).grid(row=2)
+        elif portval == "Hello Mini!":
+            print("mini is connected")
+            Label(root, text=portval).grid(row=2)
 
     else:
         portval = "null"
         print(portval)
     return portval
 
-port_val = Button(root, text="Read port", command=read_port_value).grid(row=2, column=0)
+
 
 
 root.mainloop()
