@@ -104,6 +104,7 @@ def read_port_value():
     return portval
 
 
+print("the end")
 
 
 root.mainloop()
